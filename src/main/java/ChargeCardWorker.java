@@ -38,14 +38,28 @@ public class ChargeCardWorker {
 
 					// Get a process variable
 					String item = externalTask.getVariable("item");
-					String amount = externalTask.getVariable("amount");
+					Integer amount = externalTask.getVariable("amount");
 					LOGGER.info("Charging credit card with an amount of '" + amount + "'€ for the item '" + item + "'...");
 					
-					try {
-						Desktop.getDesktop().browse(new URI("https://docs.camunda.org/get-started/quick-start/complete"));
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
+//					try {
+//						Desktop.getDesktop().browse(new URI("https://docs.camunda.org/get-started/quick-start/complete"));
+//					} catch (Exception e) {
+//						e.printStackTrace();
+//					}
+
+					// Complete the task
+					externalTaskService.complete(externalTask);
+				})
+				.open();
+		client.subscribe("step-two")
+				.lockDuration(1000) // the default lock duration is 20 seconds, but you can override this
+				.handler((externalTask, externalTaskService) -> {
+					// Put your business	 logic here
+
+					// Get a process variable
+					String item = externalTask.getVariable("item");
+					Integer amount = externalTask.getVariable("amount");
+					LOGGER.info("Step two with an amount of '" + amount + "'€ for the item '" + item + "'...");
 
 					// Complete the task
 					externalTaskService.complete(externalTask);

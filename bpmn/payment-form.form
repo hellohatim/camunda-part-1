@@ -2,8 +2,8 @@
   "components": [
     {
       "label": "Amount",
-      "type": "textfield",
-      "id": "Field_056f4ml",
+      "type": "number",
+      "id": "Field_1jl5vpg",
       "key": "amount"
     },
     {
