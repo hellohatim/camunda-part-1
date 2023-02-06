@@ -1,0 +1,24 @@
+{
+  "components": [
+    {
+      "text": "${vehicleList}",
+      "type": "text",
+      "id": "Field_087p1lo"
+    },
+    {
+      "label": "Text field",
+      "type": "textfield",
+      "id": "Field_0afzsxt",
+      "key": "vehicleList"
+    }
+  ],
+  "type": "default",
+  "id": "rest-output",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.7.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.18.0",
+  "schemaVersion": 6
+}
